@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
-    @products = Product.includes(:category).order(sort_column+ " " + sort_direction).page(params[:page]).per(50)
+    @products = Product.includes(:category).order(sort_column + " " + sort_direction).page(params[:page]).per(50)
   end
 
   def show
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   private
   
   def sort_column
-  	params[:sort] 
+  	params[:sort] ? params[:sort] : "name" 
   end
 
   def sort_direction

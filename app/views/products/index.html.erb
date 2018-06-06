@@ -1,6 +1,6 @@
 <h1>Listing products</h1>
  
-<table>
+<table class="table table-striped table-bordered table-hover table-sm">
   <tr>
     <th><%= sortable "id", "ID" %></th>
     <th><%= sortable "name", "Product Name" %></th>
@@ -17,6 +17,8 @@
     </tr>
   <% end %>
 
-   	<%= paginate @products %>
+   	<%= paginate @products, 
+      theme: 'twitter-bootstrap-4', 
+      pagination_class: "pagination-sm  justify-content-center" %>
 
 </table>
