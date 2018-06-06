@@ -12,7 +12,7 @@ if Rails.env.development?
   1000.times do |i|
     products << Product.create(
         name: Faker::Commerce.product_name,
-        price: Faker::Commerce.price,
+        price: Faker::Commerce.price(range = 1..10000.0, as_string = false),
         category: categories.sample
     )
   end
