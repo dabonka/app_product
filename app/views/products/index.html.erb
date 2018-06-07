@@ -1,4 +1,38 @@
 <h1>Listing products</h1>
+<div class="row">
+  <%= form_tag('/', { :controller => 'products', :action => 'index'}) do %>
+
+  <% if params[:direction] %>
+    <% hidden_field_tag 'direction', params[:direction] %>
+  <% end %>
+
+  <% if params[:sort] %>
+    <% hidden_field_tag 'sort', params[:sort] %>
+  <% end %>
+  
+    <div class="form-group row">
+      <div class="col-2">
+        <%= label_tag(:price_from, "Price: from") %>
+        <%= number_field_tag(:price_from, (params[:price_from].present? ? params[:price_from] : nil), {class: "form-control"}) %>
+      </div>
+      <div class="col-2">
+        <%= label_tag(:price_from, "to") %>
+        <%= number_field_tag(:price_to, (params[:price_to].present? ? params[:price_to] : nil), {class: "form-control"}) %>
+      </div>
+      <div class="col-4">
+        <label for="ex3">Category Name</label>
+        <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "name", params[:category]), {class: "form-control", :prompt => "Please select"} %>
+      </div>
+      <div class="col-4">
+        <%= label_tag(:product_name, "Product Name") %>
+        <%= text_field_tag(:product_name, (params[:product_name].present? ? params[:product_name] : nil), {class: "form-control"}) %>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <% end %>
+
+</div>
  
 <table class="table table-striped table-bordered table-hover table-sm">
   <tr>
