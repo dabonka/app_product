@@ -1,3 +1,5 @@
+Приложение доступно по адресу https://mighty-gorge-36652.herokuapp.com
+
 1. Необходимо реализовать Web App используя RoR.
 2. Модели: Category (id, name), Product (id, name, price, category_id).  Product belong to Category. Category has many products.
 3. В seeds.rb создать 10 категорий с рандомными именами и 1000 продуктов с рандомными именами, ценой и рандомной категорией используя
