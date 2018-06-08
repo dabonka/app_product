@@ -28,33 +28,33 @@ describe  "Products", :type => :feature do
     expect(current_url).to have_text "products?direction=desc&sort=name"
   end
 
-  it "Pass sorted ASC params for sorting table when click link categories name" do
+  it "Pass sorted ASC params for sorting table when click link categories title" do
     visit products_path
     click_link("Product Name")
     click_link("Product Name")
     expect(current_url).to have_text "products?direction=asc&sort=name"
   end
 
-  it "Pass sorted ASC params for sorting table when click link categories name" do
+  it "Pass sorted ASC params for sorting table when click link categories title" do
     visit products_path
     click_link("Category Name")
-    expect(current_url).to have_text "products?direction=asc&sort=categories.name"
+    expect(current_url).to have_text "products?direction=asc&sort=categories.title"
   end
 
-  it "Pass sorted DESC params for sorting table when click link categories name" do
+  it "Pass sorted DESC params for sorting table when click link categories title" do
     visit products_path
     click_link("Category Name")
     click_link("Category Name")
-    expect(current_url).to have_text "products?direction=desc&sort=categories.name"
+    expect(current_url).to have_text "products?direction=desc&sort=categories.title"
   end
 
-  it "Pass sorted ASC params for sorting table when click link categories name" do
+  it "Pass sorted ASC params for sorting table when click link categories title" do
     visit products_path
     click_link("Price")
     expect(current_url).to have_text "products?direction=asc&sort=price"
   end
 
-  it "Pass sorted DESC params for sorting table when click link categories name" do
+  it "Pass sorted DESC params for sorting table when click link categories title" do
     visit products_path
     click_link("Price")
     click_link("Price")
@@ -62,9 +62,9 @@ describe  "Products", :type => :feature do
   end
 
   it "ASC Sort product by ID" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("ID")
@@ -72,9 +72,9 @@ describe  "Products", :type => :feature do
   end
 
   it "DESC Sort product by ID" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("ID")
@@ -83,9 +83,9 @@ describe  "Products", :type => :feature do
   end
 
   it "DESC Sort product by Product Name" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Polyamid Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Polyamid Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Product Name")
@@ -93,9 +93,9 @@ describe  "Products", :type => :feature do
   end
 
   it "ASC Sort product by Product Name" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Polyamid Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Polyamid Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Product Name")
@@ -104,9 +104,9 @@ describe  "Products", :type => :feature do
   end
 
   it "ASC Sort product by Category Name" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Category Name")
@@ -114,9 +114,9 @@ describe  "Products", :type => :feature do
   end
 
   it "DESC Sort product by Category Name" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Category Name")
@@ -125,9 +125,9 @@ describe  "Products", :type => :feature do
   end
 
   it "ASC Sort product by Price" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Price")
@@ -135,9 +135,9 @@ describe  "Products", :type => :feature do
   end
 
   it "DESC Sort product by Price" do
-    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :name => "Linen")}, 
-            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :name => "Marble")}, 
-            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :name => "Paper")}]
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
     products = data.map { |p| create(:product, p) }
     visit products_path
     click_link("Price")
@@ -145,4 +145,37 @@ describe  "Products", :type => :feature do
     expect(page).to have_text "2 Aerodynamic Plastic Knife Marble 5965 3 Synergistic Paper Table Paper 5498 1 Synergistic Leather Plate Linen 1568"
   end
 
+  it "Price filter correct" do
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
+    products = data.map { |p| create(:product, p) }
+    visit products_path
+    fill_in 'price_from', :with => '5500'
+    fill_in 'price_to', :with => '6000'
+    click_button 'Submit'
+    expect(page).to have_text "2 Aerodynamic Plastic Knife Marble 5965"
+  end
+
+  it "Category filter correct" do
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
+    products = data.map { |p| create(:product, p) }
+    visit products_path
+    select('Marble', :from => 'category')
+    click_button 'Submit'
+    expect(page).to have_text "2 Aerodynamic Plastic Knife Marble 5965"
+  end
+
+  it "Product name filter correct" do
+    data = [{:id => 1, :name => "Synergistic Leather Plate", :price => 1568, :category => create(:category, :title => "Linen")}, 
+            {:id => 2, :name => "Aerodynamic Plastic Knife", :price => 5965, :category => create(:category, :title => "Marble")}, 
+            {:id => 3, :name => "Synergistic Paper Table", :price => 5498, :category => create(:category, :title => "Paper")}]
+    products = data.map { |p| create(:product, p) }
+    visit products_path
+    fill_in 'product_name', :with => 'Plastic'
+    click_button 'Submit'
+    expect(page).to have_text "2 Aerodynamic Plastic Knife Marble 5965"
+  end
 end

@@ -6,7 +6,7 @@ if Rails.env.development?
   products = []
   
   10.times do |i|
-    categories << Category.create(name: Faker::Commerce.material)
+    categories << Category.create(title: Faker::Commerce.material)
   end
 
   1000.times do |i|
