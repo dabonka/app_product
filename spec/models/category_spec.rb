@@ -8,8 +8,8 @@ RSpec.describe Category, type: :model do
 	    expect(category).to be_valid
 	  end
 
-	  it "is not valid without a name" do
-	    category = Category.new(name: nil)
+	  it "is not valid without a title" do
+	    category = Category.new(title: nil)
 	    expect(category).to_not be_valid
 	  end
 	end

@@ -21,14 +21,13 @@
       </div>
       <div class="col-4">
         <label for="ex3">Category Name</label>
-        <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "name", params[:category]), {class: "form-control", :prompt => "Please select"} %>
+        <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "title", params[:category]), {class: "form-control", :prompt => "Please select"} %>
       </div>
       <div class="col-4">
         <%= label_tag(:product_name, "Product Name") %>
         <%= text_field_tag(:product_name, (params[:product_name].present? ? params[:product_name] : nil), {class: "form-control"}) %>
       </div>
     </div>
-
     <button type="submit" class="btn btn-primary">Submit</button>
     <% end %>
 
@@ -38,7 +37,7 @@
   <tr>
     <th><%= sortable "id", "ID" %></th>
     <th><%= sortable "name", "Product Name" %></th>
-    <th><%= sortable "categories.name", "Category Name" %></th>
+    <th><%= sortable "categories.title", "Category Name" %></th>
     <th><%= sortable "price", "Price" %></th>
   </tr>
  
@@ -46,7 +45,7 @@
     <tr>
       <td><%= product.id %></td>
       <td><%= product.name %></td>
-      <td><%= product.category.name %></td>
+      <td><%= product.category.title %></td>
       <td><%= product.price %></td>
     </tr>
   <% end %>
