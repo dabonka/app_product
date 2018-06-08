@@ -1,6 +1,6 @@
 require 'faker'
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
 
   categories = []
   products = []
