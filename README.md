@@ -1,24 +1,12 @@
-# README
+Приложение доступно по адресу https://mighty-gorge-36652.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Необходимо реализовать Web App используя RoR.
+2. Модели: Category (id, name), Product (id, name, price, category_id).  Product belong to Category. Category has many products.
+3. В seeds.rb создать 10 категорий с рандомными именами и 1000 продуктов с рандомными именами, ценой и рандомной категорией используя
+https://github.com/thoughtbot/factory_bot_rails для создания сущностей и https://github.com/stympy/faker для заполнения полей рандомными значениями.
+4. Реализовать страницу показа списка продуктов в таблице со следуюшими колонками: ID, Product Name, Category Name, Price.
+5. Добавить пагинацию при показе списка продуктов по 50 продуктов на страницу.
+6. Релизовать сортировку продуктов при клике по названю поля (при первом клике - asc, при втором клике на ту же колонку - desc).
+7. Реализовать фильтр продуктов по цене (от - до), имени категории (селектбокс с выпадающим списком названий категорий), именем продукта (текстовое поле которое может содержать часть имени продукта).
+8. Написать тесты на данный функционал.
+9. Для UI интерфейса использовать http://getbootstrap.com/ .
